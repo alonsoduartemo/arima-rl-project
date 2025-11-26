@@ -11,8 +11,8 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
-import os
 import sys
+import os
 
 # Añadir directorio raíz al path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
