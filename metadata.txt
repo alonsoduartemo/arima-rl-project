@@ -1,0 +1,10 @@
+total_months: 60
+train_months: 48
+val_months: 6
+test_months: 6
+date_range: 2015-01 to 2019-12
+mean_consumption_gwh: 40799.6291
+std_consumption_gwh: 1981.3121106930046
+min_consumption_gwh: 37718.127
+max_consumption_gwh: 45828.272
+generated_at: 2025-11-25 21:14:54
