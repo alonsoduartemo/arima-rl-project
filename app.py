@@ -17,9 +17,21 @@ import os
 # Añadir directorio raíz al path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.data_processor import TimeSeriesProcessor
-from src.arima_utils import ARIMAModel, compare_models, create_comparison_table, forecast_with_intervals
-from src.rl_agent import ARIMAAgent
+# ============================================================================
+# IMPORTACIONES HÍBRIDAS (Nube vs Local)
+# ============================================================================
+try:
+    # Intento 1: Para Streamlit Cloud (ejecutando desde src/)
+    # Como son vecinos, los llamamos por su nombre directo
+    from data_processor import TimeSeriesProcessor
+    from arima_utils import ARIMAModel, compare_models, create_comparison_table, forecast_with_intervals
+    from rl_agent import ARIMAAgent
+except ImportError:
+    # Intento 2: Para tu PC (ejecutando desde la raíz con -m src.app)
+    # Aquí sí necesitamos el prefijo 'src.'
+    from src.data_processor import TimeSeriesProcessor
+    from src.arima_utils import ARIMAModel, compare_models, create_comparison_table, forecast_with_intervals
+    from src.rl_agent import ARIMAAgent
 from statsmodels.tsa.stattools import acf, pacf
 from scipy import stats
 
